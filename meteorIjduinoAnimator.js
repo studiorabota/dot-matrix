@@ -10,12 +10,12 @@ if (Meteor.isClient) {
 
     createFrames: function() {
 
-      var frame = this.createFrame;
+      var frame = this.createFrame();
 
       var frames = Array();
 
       for (i = 0; i < this.frames; i++) {
-        frames.push({ frames: i, frame: frame })
+        frames.push({ id: i, frame: frame })
       }
 
       return frames;
@@ -27,7 +27,7 @@ if (Meteor.isClient) {
       var dots = Array();
 
       for (i = 0; i < this.rows; i++) {
-        dots.push({ col: i, state: 0 })
+        dots.push({ dot: i, state: 0 })
       }
 
       var frame = Array();
@@ -42,17 +42,33 @@ if (Meteor.isClient) {
 
   },
 
-  Template.frame.helpers({
+  Template.frames.helpers({
 
-    frame: function() {
+    frames: function() {
 
-      var frame = Grid.createFrame();
+      var frames = Grid.createFrames();
 
-      return frame;
+      return frames;
 
     }
 
   })
+
+  Template.dot.events({
+
+    'click .dot': function(event) {
+      event.preventDefault();
+      this.state = 1 - this.state;
+    }
+
+  })
+
+  Template.dot.helpers({
+
+    
+
+  });
+
 }
 
 if (Meteor.isServer) {

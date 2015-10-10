@@ -5,12 +5,12 @@
 <body>
   <h1>Grid</h1>
 
-  {{> frame}}
+  {{> frames}}
 </body>
 
 <template name="frames">
     <div class="frames">
-        {{#each frame}}
+        {{#each frames}}
             {{> frame}}
         {{/each}}
     </div>
@@ -18,15 +18,17 @@
 
 <template name="frame">
     <div class="frame">
+        <div class="dots">
         {{#each frame}}
-            {{> dots}}
+            {{> row}}
         {{/each}}
-    </div>
+        </div>
 
-    {{> settings}}
+        {{> settings}}
+    </div>
 </template>
 
-<template name="dots">
+<template name="row">
     <div class="row">
         {{#each dots}}
             {{> dot}}

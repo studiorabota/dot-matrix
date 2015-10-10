@@ -1,4 +1,9 @@
 /* CSS declarations go here */
+
+.frame {
+    display: inline-block;
+}
+
 .dot {
     width: 10px;
     height: 10px;
