@@ -1,0 +1,45 @@
+<head>
+  <title>meteorIjduinoAnimator</title>
+</head>
+
+<body>
+  <h1>Grid</h1>
+
+  {{> frame}}
+</body>
+
+<template name="frames">
+    <div class="frames">
+        {{#each frame}}
+            {{> frame}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="frame">
+    <div class="frame">
+        {{#each frame}}
+            {{> dots}}
+        {{/each}}
+    </div>
+
+    {{> settings}}
+</template>
+
+<template name="dots">
+    <div class="row">
+        {{#each dots}}
+            {{> dot}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="dot">
+    <a href="" class="dot"></a>
+</template>
+
+<template name="settings">
+    <a href="#">Delete</a>
+    <a href="#">Copy</a>
+    <a href="#">Paste</a>
+</template>

@@ -1,0 +1,9 @@
+/* CSS declarations go here */
+.dot {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+}
