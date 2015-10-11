@@ -1,14 +1,28 @@
 <head>
-  <title>meteorIjduinoAnimator</title>
+  <title>IJduino Animator</title>
 </head>
 
 <body>
-  <h1>Grid</h1>
+    {{> export}}
 
-  {{> frames}}
+    <div class="center">
+        {{> frames}}
+    </div>
 </body>
 
+<template name="export">
+    <div class="export {{#if snippets}}open{{/if}}">
+        {{#each snippets}}
+            {{ snippet }}<br/>
+        {{/each}}
+    </div>
+</template>
+
 <template name="frames">
+    <div class="actions">
+        <a href="#" class="action-export button">Export</a>
+    </div>
+
     <div class="frames">
         {{#each frames}}
             {{> frame}}
@@ -19,12 +33,12 @@
 <template name="frame">
     <div class="frame">
         <div class="dots">
-        {{#each frame}}
-            {{> row}}
-        {{/each}}
+            {{#each dots}}
+                {{> dot}}
+            {{/each}}
         </div>
 
-        {{> settings}}
+        {{> frame_actions}}
     </div>
 </template>
 
@@ -37,11 +51,14 @@
 </template>
 
 <template name="dot">
-    <a href="" class="dot"></a>
+    <a href="" class="dot {{#if state}}set{{/if}}"></a>
 </template>
 
-<template name="settings">
-    <a href="#">Delete</a>
-    <a href="#">Copy</a>
-    <a href="#">Paste</a>
+<template name="frame_actions">
+    <div class="frame-actions">
+        <a href="#" class="clear">Clear</a>
+        <a href="#" class="copy">Copy</a>
+        <a href="#" class="paste">Paste</a>
+        <a href="#" class="export">Export</a>
+    </div>
 </template>

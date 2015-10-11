@@ -2,53 +2,139 @@ if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('counter', 0);
 
-  Grid = {
+  Animator = {
 
-    frames: 20,
-    columns: 8,
-    rows: 8,
+    copy: false,
 
-    createFrames: function() {
+    exportFrames: function() {
 
-      var frame = this.createFrame();
+      var frames = Frames.find();
 
-      var frames = Array();
+      var snippets = Array();
 
-      for (i = 0; i < this.frames; i++) {
-        frames.push({ id: i, frame: frame })
-      }
+      var self = this;
 
-      return frames;
+      var count = 0;
+
+      frames.forEach(function (frame) {
+
+        console.log(frame);
+
+        snippets[count] = self.exportFrame(frame);
+
+        count += 1;
+
+      });
+
+      console.log(snippets);
+
+      return snippets;
 
     },
 
-    createFrame: function() {
+    exportFrame: function(frame) {
 
-      var dots = Array();
+      // get all dots and export to..
+      var dots = Dots.find({parent: frame._id});
 
-      for (i = 0; i < this.rows; i++) {
-        dots.push({ dot: i, state: 0 })
-      }
+      var count = 0;
+      var snippet = 'B';
 
-      var frame = Array();
+      dots.forEach(function (dot) {
 
-      for (i = 0; i < this.columns; i++) {
-        frame.push({ row: i, dots: dots })
-      }
+        if(dot.state) { snippet += '1'; } else { snippet += '0'; }
 
-      return frame;
+        if(count == 7 && (dot.dot != dots.count() - 1)) {
+          snippet += ',B';
+          count = 0;
+        } else {
+          count += 1;
+        }
+
+      });
+
+      return {snippet: snippet};
 
     }
 
-  },
+  }
+
+  Template.export.helpers({
+    snippets: function () {
+      return Session.get('export_code');
+    }
+  })
 
   Template.frames.helpers({
 
     frames: function() {
 
-      var frames = Grid.createFrames();
+      // console.log(Frames.findOne().data);
 
-      return frames;
+      return Frames.find();
+
+    }
+
+  })
+
+  Template.frames.events({
+
+    'click .action-export': function() {
+
+      event.preventDefault();
+
+      var export_code = Animator.exportFrames();
+
+      console.log(export_code);
+
+      Session.set("export_code", export_code);
+
+    }
+
+  })
+
+
+  Template.frame.helpers({
+
+    dots: function() {
+
+      return Dots.find({parent: this._id});
+
+    }
+
+  })
+
+  Template.frame_actions.events({
+
+    'click .copy': function(event) {
+
+      event.preventDefault();
+
+      Animator.copy = this;
+
+    },
+
+    'click .paste': function(event) {
+
+      event.preventDefault();
+
+      // get model
+      // overwrite this
+
+
+      console.log(Animator.copy);
+
+    },
+
+    'click .export': function(event) {
+
+      event.preventDefault();
+
+      var export_code = Animator.exportFrame(this);
+
+      Session.set("export_code", [export_code]);
+
+      // Animator.exportFrame(dots);
 
     }
 
@@ -58,16 +144,13 @@ if (Meteor.isClient) {
 
     'click .dot': function(event) {
       event.preventDefault();
-      this.state = 1 - this.state;
+
+      Dots.update(this._id, {
+        $set: {state: ! this.state}
+      });
     }
 
   })
-
-  Template.dot.helpers({
-
-    
-
-  });
 
 }
 
