@@ -1,6 +1,9 @@
 Frames  = new Mongo.Collection("frames");
 Dots    = new Mongo.Collection("dots");
 
+Frames.remove({});
+Dots.remove({});
+
 Grid = {
 
   frames: 4,
@@ -24,10 +27,8 @@ Grid = {
 
 }
 
-if(!Frames.findOne()) {
-  Frames.remove({});
-  Dots.remove({});
+var alreadyExists = Frames.find().count();
 
-  // Insert dots if non exist
+if(!alreadyExists) {
   Grid.createDots();
 }

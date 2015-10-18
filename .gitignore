@@ -4,5 +4,6 @@ npm-debug.log
 examples/_*
 examples/*.json
 .idea
+packages
 
 .meteor
