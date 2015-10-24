@@ -1,0 +1,39 @@
+<template name="export">
+
+    <div class="export {{#if snippets}}open{{/if}}">
+
+        <nav class="navbar navbar-default actions">
+
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Export</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="action-close-export button">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Close
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+
+        <div class="container">
+
+            <div class="row">
+                <h4>
+                {{#each snippets}}
+                {{ snippet }}<br/>
+                {{/each}}
+                </h4>
+            </div>
+
+        </div>
+
+    </div>
+
+</template>

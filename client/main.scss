@@ -1,0 +1,55 @@
+@import '{reywood:bootstrap3-sass}/bootstrap';
+
+@import 'export/export';
+
+@import 'frames/frame/frame';
+
+/* CSS declarations go here */
+
+body {
+  font-family: helvetica, arial;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background-color: #30B2ED;
+}
+
+.navbar {
+  border-radius: 0;
+}
+
+.center {
+  display: inline-block;
+  margin: 0 auto;
+  width: 1260px;
+  display: inline;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #777;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 5px;
+}
+.dot.set {
+  background-color: orange;
+  border: 2px solid orange;
+}
+
+
+
+.frame-actions {
+  padding: 5px;
+}
+
+.frame-actions a {
+  color: white;
+  padding: 8px;
+  display: inline-block;
+  border-radius: 3px;
+  background-color: white;
+  color: #666;
+  text-decoration: none;
+}

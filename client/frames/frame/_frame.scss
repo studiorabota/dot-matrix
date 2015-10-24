@@ -1,0 +1,23 @@
+.frame {
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+  width: 240px;
+  background-color: #ffffff;
+
+  .navbar {
+    margin-bottom: 0;
+
+    .navbar-nav {
+      display: block;
+      float: none;
+
+      > li {
+        float: none;
+        display: inline-block;
+      }
+    }
+
+  }
+}
+

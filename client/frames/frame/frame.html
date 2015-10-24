@@ -1,0 +1,11 @@
+<template name="frame">
+    <div class="frame">
+        <div class="dots">
+            {{#each dots}}
+            {{> dot}}
+            {{/each}}
+        </div>
+
+        {{> frame_actions}}
+    </div>
+</template>
