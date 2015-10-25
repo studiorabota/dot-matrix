@@ -6,6 +6,7 @@ Template.dot.events({
         Dots.update(this._id, {
             $set: {state: ! this.state}
         });
+
     }
 
 })

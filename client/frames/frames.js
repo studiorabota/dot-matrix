@@ -30,6 +30,17 @@ Template.frames.events({
 
         Grid.createFrame();
 
+    },
+
+    'click .action-play': function(event) {
+
+        console.log('clixk');
+
+        var data = MatrixData.exportFrames();
+
+        console.log(data);
+        console.log(MatrixData.data);
+
     }
 
 })
