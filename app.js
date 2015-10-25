@@ -18,15 +18,11 @@ if (Meteor.isClient) {
 
       frames.forEach(function (frame) {
 
-        console.log(frame);
-
         snippets[count] = self.exportFrame(frame);
 
         count += 1;
 
       });
-
-      console.log(snippets);
 
       return snippets;
 

@@ -18,9 +18,13 @@ Template.frames.events({
 
         var export_code = Animator.exportFrames();
 
-        console.log(export_code);
-
         Session.set("export_code", export_code);
+
+    },
+
+    'click .action-create-frame': function(event) {
+
+        Grid.createFrame();
 
     }
 

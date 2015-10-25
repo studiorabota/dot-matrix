@@ -25,14 +25,11 @@ Template.frame_actions.events({
         // get model
         // overwrite this
 
-
         console.log(Animator.copy);
 
     },
 
     'click .action-export-frame': function(event) {
-
-        console.log('test');
 
         event.preventDefault();
 
@@ -41,6 +38,15 @@ Template.frame_actions.events({
         Session.set("export_code", [export_code]);
 
         // Animator.exportFrame(dots);
+
+    },
+
+    'click .action-remove': function(event) {
+
+        event.preventDefault();
+
+        Frames.remove(this._id);
+        Frames.remove({parent: this._id});
 
     }
 
