@@ -2,8 +2,16 @@
     {{> navbar}}
 
     <div class="frames">
+        {{#unless showMessage}}
+            <div class="container">
+                <div class="row">
+                    <h3 class="message">Press <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Add frame to start animating</h3>
+                </div>
+            </div>
+        {{/unless}}
+
         {{#each frames}}
-        {{> frame}}
+            {{> frame}}
         {{/each}}
     </div>
 </template>

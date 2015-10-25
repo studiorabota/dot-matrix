@@ -6,6 +6,10 @@ Template.frames.helpers({
 
         return Frames.find();
 
+    },
+
+    showMessage: function() {
+        return Frames.find().count();
     }
 
 })
