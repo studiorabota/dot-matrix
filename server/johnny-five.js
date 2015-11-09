@@ -1,14 +1,43 @@
 var JohnnyFive = Meteor.npmRequire('johnny-five'),
     board;
 
+var Fiber = Meteor.npmRequire('fibers');
+
 Meteor.startup(function(){
 
+    // create board
     board = new JohnnyFive.Board();
 
+    // check if board is ready for Client
+    setInterval(function(){
+
+        if(board.isConnected) {
+
+            // Tell client Arduino is ready
+            Fiber(function() {
+                var existing = Arduino.find({state: true}).count();
+
+                if(!existing) Arduino.insert({state: true});
+            }).run();
+
+        } else {
+
+            // Tell client Arduino is NOT ready
+            Fiber(function() {
+                var existing = Arduino.find().count();
+
+                if(existing) Arduino.remove({});
+            }).run();
+
+        }
+    },5000);
+
+    // error
     board.on('error', function (error) {
         console.error('Johnny Five Error', error);
     });
 
+    // when board is connected
     board.on("ready", function() {
 
         var heart = [

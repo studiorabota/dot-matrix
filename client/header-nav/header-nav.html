@@ -13,16 +13,24 @@
                         <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Add frame
                     </a>
                 </li>
+
+                {{#if framesAvailable}}
                 <li class="action-export button">
                     <a href="#">
                         <span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export
                     </a>
                 </li>
-                <li class="action-play button">
-                    <a href="#">
-                        <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Play
-                    </a>
-                </li>
+                {{/if}}
+
+                {{#if arduinoReady}}
+                    {{#if framesAvailable}}
+                        <li class="action-play button">
+                            <a href="#">
+                                <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Play
+                            </a>
+                        </li>
+                    {{/if}}
+                {{/if}}
             </ul>
 
         </div>

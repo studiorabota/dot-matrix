@@ -8,6 +8,16 @@ Template.frames.helpers({
 
     showMessage: function() {
         return Frames.find().count();
+    },
+
+    arduinoReady: function() {
+
+        if(Arduino.find().count()) {
+            return Arduino.findOne().state;
+        } else {
+            return false;
+        }
+
     }
 
 })
@@ -36,17 +46,6 @@ Template.frames.events({
 
         Meteor.call('play', data);
 
-    },
-
-    'submit .new-message': function(event) {
-
-        event.preventDefault();
-
-        var text = event.target.text.value;
-
-        Meteor.call('play', text);
-
     }
-
 
 })
