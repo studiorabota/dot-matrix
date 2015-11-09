@@ -42,8 +42,6 @@ Meteor.startup(function(){
 
                 if(arduinoFrames[frameCount]) {
                    matrix.draw(arduinoFrames[frameCount])
-                } else {
-                    // console.log('err', arduinoFrames[frameCount]);
                 }
 
                 frameCount++;

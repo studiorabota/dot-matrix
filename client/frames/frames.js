@@ -36,10 +36,17 @@ Template.frames.events({
 
         Meteor.call('play', data);
 
-        //
-        //console.log(data);
-        //console.log(MatrixData.data);
+    },
+
+    'submit .new-message': function(event) {
+
+        event.preventDefault();
+
+        var text = event.target.text.value;
+
+        Meteor.call('play', text);
 
     }
+
 
 })
