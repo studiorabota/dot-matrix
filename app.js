@@ -10,9 +10,9 @@ if (Meteor.isClient) {
 
       var frames = Frames.find();
 
-      var snippets = Array();
-
       var self = this;
+
+      var snippets = Array();
 
       var count = 0;
 

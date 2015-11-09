@@ -2,8 +2,6 @@ Template.frames.helpers({
 
     frames: function() {
 
-        // console.log(Frames.findOne().data);
-
         return Frames.find();
 
     },
@@ -34,12 +32,13 @@ Template.frames.events({
 
     'click .action-play': function(event) {
 
-        console.log('clixk');
-
         var data = MatrixData.exportFrames();
 
-        console.log(data);
-        console.log(MatrixData.data);
+        Meteor.call('play', data);
+
+        //
+        //console.log(data);
+        //console.log(MatrixData.data);
 
     }
 

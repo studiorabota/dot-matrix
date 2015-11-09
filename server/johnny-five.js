@@ -3,13 +3,6 @@ var JohnnyFive = Meteor.npmRequire('johnny-five'),
 
 Meteor.startup(function(){
 
-
-    //Meteor.subscribe('frames', function () {
-    //    var frames = Frames.find();
-    //
-    //    console.log(frames.count());
-    //});
-
     board = new JohnnyFive.Board();
 
     board.on('error', function (error) {
@@ -43,11 +36,15 @@ Meteor.startup(function(){
 
         function next() {
 
-            var frames = Meteor.MatrixData.data;
+            if(arduinoFrames) {
 
-            if(frames.length) {
+                var frames = arduinoFrames;
 
-                matrix.draw(frames[frameCount]);
+                if(arduinoFrames[frameCount]) {
+                   matrix.draw(arduinoFrames[frameCount])
+                } else {
+                    // console.log('err', arduinoFrames[frameCount]);
+                }
 
                 frameCount++;
 

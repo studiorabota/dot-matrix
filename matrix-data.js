@@ -30,7 +30,7 @@ MatrixData = {
 
         var dots = Dots.find({parent: frame._id});
 
-        var snippet = Array();
+        var snippet = [];
 
         var count = 0,
             line = '';
@@ -39,8 +39,9 @@ MatrixData = {
 
             if(dot.state) { line += '1'; } else { line += '0'; }
 
-            if(count == 7 && (dot.dot != dots.count() - 1)) {
+            if(count == 7) {
                 snippet.push(line)
+
                 line = '';
                 count = 0;
             } else {
