@@ -2,13 +2,13 @@
 
 A visual tool to create dot matrix animations which you can then export to binary for a 8x8 display. 
 
-If you just want to make animations and export to binary, check out the [online version](ijduinoanimator.meteor.com)
+If you just want to make animations and export to binary, check out the [online version](http://ijduinoanimator.meteor.com)
 
 Made for the [IJduino](http://ijhack.nl/project/ijduino) but also useful for other boards, like the Arduino.
 
 ## Installing
 1. Clone the repository
-2. Install [Meteor](meteor.com)
+2. Install [Meteor](http://meteor.com)
 3. Run `meteor` in your terminal
 4. A message will appear: "waiting for Board"
 5. Open your browser and go to [http://localhost:3000](http://localhost:3000)
