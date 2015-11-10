@@ -1,0 +1,12 @@
+.dot {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #777;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 5px;
+}
+.dot.set {
+  background-color: orange;
+  border: 2px solid orange;
+}

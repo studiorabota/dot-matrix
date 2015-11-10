@@ -1,0 +1,23 @@
+<template name="frames">
+    {{> navbar arduinoReady=arduinoReady framesAvailable=showMessage}}
+
+    <div class="frames">
+        {{#unless showMessage}}
+            <div class="container">
+
+                <div class="row">
+                    <h3 class="message">Press <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Add frame to start animating</h3>
+                </div>
+
+                {{#if arduinoReady}}
+                    {{> sendText}}
+                {{/if}}
+
+            </div>
+        {{/unless}}
+
+        {{#each frames}}
+            {{> frame}}
+        {{/each}}
+    </div>
+</template>

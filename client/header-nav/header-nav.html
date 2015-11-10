@@ -1,0 +1,38 @@
+<template name="navbar">
+    <nav class="navbar navbar-default actions">
+
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">IJduino Animator</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="action-create-frame button">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Add frame
+                    </a>
+                </li>
+
+                {{#if framesAvailable}}
+                <li class="action-export button">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export
+                    </a>
+                </li>
+                {{/if}}
+
+                {{#if arduinoReady}}
+                    {{#if framesAvailable}}
+                        <li class="action-play button">
+                            <a href="#">
+                                <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Play
+                            </a>
+                        </li>
+                    {{/if}}
+                {{/if}}
+            </ul>
+
+        </div>
+    </nav>
+</template>

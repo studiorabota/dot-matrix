@@ -1,0 +1,32 @@
+@import '{reywood:bootstrap3-sass}/bootstrap';
+
+body {
+  font-family: helvetica, arial;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background-color: #30B2ED;
+}
+
+.navbar {
+  border-radius: 0;
+}
+
+.center {
+  display: inline-block;
+  margin: 0 auto;
+  width: 1260px;
+  display: inline;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #fff;
+}
+
+@import 'export/export';
+
+@import 'frames/frames';
+
+@import 'frames/frame/frame';
+
+@import 'dots/dot/dot';
