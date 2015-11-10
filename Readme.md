@@ -15,12 +15,11 @@ Made for the [IJduino](http://ijhack.nl/project/ijduino) but also useful for oth
 
 
 ## Connecting your board
-##### Works for Arduino and maybe other boards
 1. Follow [these](https://github.com/rwaldron/johnny-five/blob/master/docs/led-matrix.md) steps to connect the wires between your Arduino and LED matrix
 2. Connect your Arduino to the computer via USB
 3. Open the [Arduino IDE](https://www.arduino.cc/en/Main/Software)
 4. Open `StandardFirmata`: File -> Examples -> Firmata -> Standard -> StandardFirmata
 5. Upload `StandardFirmata` to your board. This will make it possible for the animator to talk to your board
-6. A play button will appear in the toolbar. Use this to send your animation from the animator to the led matrix
+6. Go to [http://localhost:3000](http://localhost:3000). A play button will appear in the toolbar. Use this to send your animations from the animator to the led matrix
 
 
