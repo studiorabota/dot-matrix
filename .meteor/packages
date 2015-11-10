@@ -30,6 +30,7 @@ reywood:bootstrap3-sass
 ground:db
 meteorhacks:npm
 
+matteodem:server-session
+
 
 npm-container
-matteodem:server-session
