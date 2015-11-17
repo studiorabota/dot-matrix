@@ -53,9 +53,9 @@ Meteor.startup(function(){
 
         var matrix = new JohnnyFive.Led.Matrix({
             pins: {
-                data: 12,
-                clock: 11,
-                cs: 10
+                data: 2,
+                clock: 3,
+                cs: 4
             }
         });
 
